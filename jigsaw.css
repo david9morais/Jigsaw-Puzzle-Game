@@ -1,0 +1,379 @@
+/*
+   TRABALHO 1 DE APLICAÇÕES MULTIMÉDIA 2020
+   GRUPO: Leonardo Carvalho | 170100058 | Ricardo Silva | 170100361 | David Morais | 170100356
+*/
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  background-image: url(images/background.jpg);
+}
+
+#stage {
+  display: block;
+}
+
+#final {
+  display: none;
+}
+
+.tela {
+  position: relative;
+  width: 366px;
+  height: 366px;
+  margin: 1px;
+  background-color: white;
+  border: 10px solid #1D4952;
+  box-shadow: inset 2px 2px 2px 0px #aaaaaa, 4px 4px 4px #1E7179;
+  border-radius: 2%;
+}
+
+#title {
+  color: white;
+  text-shadow: 1px 1px 1px #1D4952; 
+}
+
+#output {
+  color: white;
+  font-family: tahoma;
+  font-size: 1em;
+  margin-top: 10px;
+  line-height: 25px !important;
+  width: 100%;
+  display: block;
+}
+
+#njogadas{
+  text-shadow: 1px 1px 1px #1D4952; 
+}
+
+#njogadas strong{
+  padding-left: 5px;
+  
+}
+
+.metade {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+.tesquerda {
+  text-align: left;
+  line-height: 25px;
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.tdireita {
+  text-align: right;
+  line-height: 25px;
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.cell {
+  display: block;
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border: 1px solid white;
+  border-radius: 5%;
+  box-shadow: 1px 1px 1px #888888;
+  cursor: pointer;
+}
+
+.cell:hover {
+  opacity: 0.8;
+}
+
+.rotate{
+  display: block;
+  position: absolute;
+  height: 90px;
+  width: 90px;
+  border: 1px solid white;
+  box-shadow: 1px 1px 1px #888888;
+  border-radius: 5%;
+  animation: rotate ease-out 0.5s;
+}
+
+@keyframes rotate{
+  from {
+    transform: rotate(180deg);
+    border-radius: 100%;
+  }
+  to {
+    transform: rotate(360deg);
+    border-radius: 5%;
+  }
+}
+
+#game {
+  width: 390px;
+  height: 455px;
+  position: relative;
+  margin: 0px auto;
+  top: 50px;
+}
+
+@font-face {
+  font-family: PiratesWriters;
+  src: url("fonts/PiratesWriters.ttf");
+}
+
+h1 {
+  text-align: center;
+  font-family: PiratesWriters;
+  font-size: 50px;
+}
+
+p {
+  font-family: PiratesWriters;
+  font-size: 20px;
+  width: 384px;
+  padding: 10px;
+}
+
+.imgButton{
+  background-color: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 1px;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.swing {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 2px;
+  margin: 4px 4px;
+  animation: swing infinite ease-in-out 12s ;
+  transform-origin: center;
+}
+
+@keyframes swing{
+  12.5% { transform: rotate(30deg);}
+  37.5% { transform: rotate(-30deg);}
+  50.0% { transform: initial;}
+  62.5% { transform: rotate(-30deg);}
+  87.5% { transform: rotate(30deg);}
+  100.0% { transform: initial;}
+}
+
+#thumSet {
+  display: block;
+  height: 54px;
+  width: auto;
+  border: 1px solid white;
+  position: relative;
+  margin-top: 10px;
+}
+
+.icon {
+  float: right;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 3px 5px 3px 0px;
+  cursor: pointer;
+}
+
+.view {
+  background-image: url("images/ui/view.png");
+  box-shadow: inset 0 0 0 1px white;
+  border-radius: 50%;
+}
+
+.viewOff {
+  background-position-x: -20px!important;
+}
+
+.sound {
+  background-image: url("images/ui/sound-icon-250.png");
+}
+
+.soundOff {
+  background-position-x: -20px!important;
+}
+
+#overlay {
+  position: fixed;
+  display: none; /*escondido por defeito*/
+  width: 100%; /*cobre a pagina inteira*/
+  height: 100%; /*cobre a pagina inteira*/
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.9); /* Black background with opacity */
+}
+
+#text1{
+  position: relative;
+  top: 23%;
+  left: 34%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+}
+#text2{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#text3{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#text4{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-seri
+}
+
+#text5{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-seri
+}
+
+#text6{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-seri
+}
+
+#text7{
+  position: relative;
+  top: 25%;
+  left: 35%;
+  right: 65%;
+  font-size: 20px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#text8{
+  position: relative;
+  left: 35%;
+  right: 65%;
+  font-size: 30px;
+  color: #008CBA;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#overlay a { 
+  display: block; 
+  padding: 10px 10px;
+  background-color: #008CBA;
+  border: 3px solid blue;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 10%;
+  left: 40%;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#overlay a:hover {
+  background-color: blue;
+}
+
+#buttons{
+  position: absolute;
+  bottom: 20%;
+  left: 40%;  
+}
+
+.btnDif{
+  display: none;
+  padding: 10px 10px;
+  border-radius: 10px;
+  float: left;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.d3{
+  background-color: #4CAF50;
+  border: 3px solid green;
+}
+
+.d3:hover{
+  background-color: green;
+}
+
+.d4{
+  background-color:#FFFF66;
+  border: 3px solid yellow;
+}
+
+.d4:hover{
+  background-color: yellow;
+}
+
+.d5{
+  background-color: #FF6A33;
+  border: 3px solid orangered;
+}
+
+.d5:hover{
+  background-color: orangered;
+}
+
+.d6{
+  background-color:#F44336;
+  border: 3px solid red;
+}
+
+.d6:hover{
+  background-color: red;
+}
+
+#buttons:hover .btnDif{
+  display: block;
+}
